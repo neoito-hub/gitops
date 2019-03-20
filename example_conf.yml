@@ -1,0 +1,23 @@
+env:
+  NAME: api
+  IMAGE: example/api
+
+networks:
+  local:
+    hosts:
+      - localhost
+  staging:
+    hosts:
+      - stg1.example.com
+  production:
+    hosts:
+      - api1.example.com
+      - api2.example.com
+
+commands:
+  build:
+    desc: Print some env vars
+    run: echo $NAME $IMAGE $SUP_NETWORK
+  run_app:
+    desc: Print OS name and current date/time
+    run: uname -a; date
